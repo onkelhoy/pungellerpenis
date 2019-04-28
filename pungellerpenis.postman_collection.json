@@ -1,0 +1,444 @@
+{
+	"info": {
+		"_postman_id": "16f42e8e-103a-4ca0-bc38-4293ade3f472",
+		"name": "pungellerpenis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "group",
+			"item": [
+				{
+					"name": "get groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/group/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"group",
+								""
+							]
+						},
+						"description": "by the user id"
+					},
+					"response": []
+				},
+				{
+					"name": "create group",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "hello world",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/group/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"group",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "hello world2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/group/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"group",
+								""
+							]
+						},
+						"description": "delete a specific group"
+					},
+					"response": []
+				},
+				{
+					"name": "join group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "hello world",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/group/join",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"group",
+								"join"
+							]
+						},
+						"description": "Join a group by its name"
+					},
+					"response": []
+				},
+				{
+					"name": "edit group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "old",
+									"value": "hello world",
+									"description": "The current name of group",
+									"type": "text"
+								},
+								{
+									"key": "new",
+									"value": "hello world2",
+									"description": "The bewished name for the group",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/group/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"group",
+								""
+							],
+							"query": [
+								{
+									"key": "old",
+									"value": "hello world",
+									"description": "The current name of group",
+									"disabled": true
+								},
+								{
+									"key": "new",
+									"value": "",
+									"description": "The bewished name for the group",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "a@a.a",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "lala",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/user/?",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "a@a.a",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "lala",
+									"disabled": true
+								}
+							]
+						},
+						"description": "login "
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "a@a.a",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "lala",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/user/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						},
+						"description": "register a user "
+					},
+					"response": []
+				},
+				{
+					"name": "upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "url",
+									"value": "",
+									"description": "the image url",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "penis",
+									"description": "the type of the image (pung|penis)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/user/upload/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"upload",
+								""
+							]
+						},
+						"description": "uplaod a picture"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contest",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "group",
+									"value": "hello world",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "first contest",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/contest/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contest",
+								""
+							],
+							"query": [
+								{
+									"key": "group",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "creating a new contest"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dummy request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "this is only for quick testing "
+			},
+			"response": []
+		}
+	]
+}

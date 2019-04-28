@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const UserModel  = require('../models/user/user') 
+const ImageModel = require('../models/user/image')
 
 let router = express.Router()
 
@@ -44,6 +45,31 @@ router.put('/', async (req, res) => {
   }
   catch (e)
   {
+    res.status(500).json({error: e.message})
+  }
+})
+
+router.post('/upload', async (req, res) => {
+  let { type, url } = req.body 
+
+  if (/penis/i.test(type))
+  {
+    type = ImageModel.TYPE.PENIS 
+  }
+  else 
+  {
+    type = ImageModel.TYPE.PUNG
+  }
+
+  let model = new ImageModel()
+  model.url = url 
+  model.type = type 
+
+  try {
+    await model.save()
+    res.status(201).json(true)
+  }
+  catch (e) {
     res.status(500).json({error: e.message})
   }
 })

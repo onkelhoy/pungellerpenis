@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const types = Object.freeze({
-  Pung: 'pung',
-  Penis: 'penis'
+  PUNG: 'pung',
+  PENIS: 'penis'
 })
 
 const ImageSchema = new Schema(
@@ -19,6 +19,6 @@ const ImageSchema = new Schema(
   { timestamps: true }
 );
 
-Object.assign(ImageSchema.statics, types)
+ImageSchema.statics.TYPE = types
 // export the new Schema so we could modify it using Node.js
 module.exports = mongoose.model("Image", ImageSchema);

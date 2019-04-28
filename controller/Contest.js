@@ -24,23 +24,30 @@ router.get('/:contestid/next', (req, res) => {
 
 router.put('/', async (req, res) => {
   // save
-  let model = new ContestModel()
-  
   try 
   {
-    let group = await GroupModel.findById(req.body.group)
+    let group = await GroupModel.findOne({name: req.body.group})
     if (!group) {
       return res.status(404).json({error: 'Group does not exists'})
     }
     let user = await UserModel.findById(req.signedCookies.credentials.id)
-    let imageCollection = await ImageModel.aggregate([{'$sample': {size: req.body.images}}])
-    let warning = null
-
+    // make sure user belongs to the group 
+    if (!user.groups.find(g => g._id.equals(group._id)))
+    {
+      return res.status(403).json({error: 'Permission denied, you don\'t belong to this group'})
+    }
+    if (isNaN(Number(req.body.images)))
+    {
+      return res.status(500).json({error: 'argument images must be numerical'})
+    }
+    let imageCollection = await ImageModel.aggregate([{'$sample': {size: Number(req.body.images)}}])
+    
     if (imageCollection.length === 0)
     {
       return res.status(404).json({error: 'There was not a single image to play with'})
     }
     
+    let model = new ContestModel()
     model.images = imageCollection 
     model.name = req.body.name 
     model.group = group._id

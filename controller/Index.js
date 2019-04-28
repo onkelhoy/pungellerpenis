@@ -17,6 +17,7 @@ router.use('*', (req, res, next) => {
   res.status(403).json({error: 'No access'})
 })
 router.use('/group', require('./Group'))
+router.use('/contest', require('./Contest'))
 
 
 module.exports = router 
