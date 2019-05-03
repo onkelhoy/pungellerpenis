@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "16f42e8e-103a-4ca0-bc38-4293ade3f472",
+		"_postman_id": "06507c3d-1a2e-4aee-b569-97eab7349cf3",
 		"name": "pungellerpenis",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -180,7 +180,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8080/api/group/",
+							"raw": "https://localhost:8080/api/group/?",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -331,13 +331,13 @@
 							"urlencoded": [
 								{
 									"key": "url",
-									"value": "",
+									"value": "https://picsum.photos/400",
 									"description": "the image url",
 									"type": "text"
 								},
 								{
 									"key": "type",
-									"value": "penis",
+									"value": "pung",
 									"description": "the type of the image (pung|penis)",
 									"type": "text"
 								}
@@ -419,6 +419,103 @@
 							]
 						},
 						"description": "creating a new contest"
+					},
+					"response": []
+				},
+				{
+					"name": "by group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/contest/hello world",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contest",
+								"hello world"
+							]
+						},
+						"description": "gets all the contests based on group "
+					},
+					"response": []
+				},
+				{
+					"name": "answer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "contest",
+									"value": "5ccc4d27d954414f8cf3a0a6",
+									"type": "text"
+								},
+								{
+									"key": "answer",
+									"value": "penis",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/contest/answer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contest",
+								"answer"
+							]
+						},
+						"description": "Answer some image"
+					},
+					"response": []
+				},
+				{
+					"name": "next",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/contest/5ccc4d27d954414f8cf3a0a6/next",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contest",
+								"5ccc4d27d954414f8cf3a0a6",
+								"next"
+							]
+						},
+						"description": "get the next image in the context"
 					},
 					"response": []
 				}

@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 const ContestSchema = new Schema(
   {
     name: { type: String, required: true },
-    scrorelist: [{ value: Number, user: { type: Schema.Types.ObjectId, ref: 'User' } }],
+    scorelist: [{ value: Number, index: Number, user: { type: Schema.Types.ObjectId, ref: 'User' } }],
     group: { type: Schema.Types.ObjectId, ref: 'Group' },
-    images: {type: Number, required: true} 
+    images: [{type: Schema.Types.ObjectId, ref: 'Image' }] 
   },
   { timestamps: true }
 );
