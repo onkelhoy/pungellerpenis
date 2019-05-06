@@ -465,7 +465,7 @@
 							"urlencoded": [
 								{
 									"key": "contest",
-									"value": "5ccc4d27d954414f8cf3a0a6",
+									"value": "5ccfc4d6c7e7a6a3bce9552f",
 									"type": "text"
 								},
 								{
@@ -502,7 +502,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://localhost:8080/api/contest/5ccc4d27d954414f8cf3a0a6/next",
+							"raw": "https://localhost:8080/api/contest/5ccfc4d6c7e7a6a3bce9552f/next",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -511,11 +511,50 @@
 							"path": [
 								"api",
 								"contest",
-								"5ccc4d27d954414f8cf3a0a6",
+								"5ccfc4d6c7e7a6a3bce9552f",
 								"next"
 							]
 						},
 						"description": "get the next image in the context"
+					},
+					"response": []
+				},
+				{
+					"name": "scores",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "contest",
+									"value": "5ccfc4d6c7e7a6a3bce9552f",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/api/contest/score",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contest",
+								"score"
+							]
+						},
+						"description": "get the scorelist of the contest "
 					},
 					"response": []
 				}

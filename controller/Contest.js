@@ -17,7 +17,7 @@ router.get('/:group', async (req, res) => {
       return 
     }
     
-    let contests = await ContestModel.find({group: group._id})
+    let contests = await ContestModel.find({group: group._id, ended: false})
 
     res.status(200).json(contests)
   }
@@ -35,6 +35,12 @@ router.get('/:contest/next', async (req, res) => {
     if (!group)
     {
       return
+    }
+
+    if (contest.ended)
+    {
+      res.status(403).json({error: 'Contest already ended'})
+      return false 
     }
 
     // check if user exists in scorelist 
@@ -80,6 +86,11 @@ router.post('/answer', async (req, res) => {
       return
     }
 
+    if (contest.ended)
+    {
+      res.status(403).json({error: 'Contest already ended'})
+      return false 
+    }
     // answer the current index in list (based that he already hasnt)
 
     // check if user exists in scorelist 
@@ -167,6 +178,7 @@ router.put('/', async (req, res) => {
     model.images = imageCollection 
     model.name = req.body.name 
     model.group = group._id
+    model.ended = false 
     await model.save()
 
     if (imageCollection.length < imgcount) 
@@ -196,6 +208,34 @@ router.post('/score', async (req, res) => {
     if (!group)
     {
       return 
+    }
+
+    let scores = [], ok = contest.scorelist.length > 1 // atleast two 
+    for (let score of contest.scorelist)
+    {
+      scores.push({
+        value: score.value,
+        finished: score.index,
+        max: contest.images.length
+      })
+
+      if (score.index < contest.images.length)
+      {
+        ok = false 
+      }
+    }
+
+    if (contest.ended || !ok)
+    {
+      res.status(200).json(scores)
+    }
+    else 
+    {
+      // if ok then end the contest  
+      contest.ended = true 
+      await contest.save() 
+
+      res.status(202).json(scores)
     }
   }
   catch (e)

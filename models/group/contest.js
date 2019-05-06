@@ -7,7 +7,8 @@ const ContestSchema = new Schema(
     name: { type: String, required: true },
     scorelist: [{ value: Number, index: Number, user: { type: Schema.Types.ObjectId, ref: 'User' } }],
     group: { type: Schema.Types.ObjectId, ref: 'Group' },
-    images: [{type: Schema.Types.ObjectId, ref: 'Image' }] 
+    images: [{type: Schema.Types.ObjectId, ref: 'Image' }],
+    ended: Boolean
   },
   { timestamps: true }
 );
