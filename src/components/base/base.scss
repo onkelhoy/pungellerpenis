@@ -1,0 +1,72 @@
+body {
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+header {
+  z-index: 10;
+  background-color: cornflowerblue;
+  position: relative;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-100%);
+  transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) .3s;
+
+  button.hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    transform: translateX(100%);
+    transition: right cubic-bezier(0.68, -0.55, 0.265, 1.55) .3s;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  nav {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    box-sizing: border-box;
+
+    a {
+      display: block;
+      background-color: rgba(255, 255, 255, 0.075);
+      width: 80vw;
+      
+      text-align: center;
+      color: white;
+      margin: 5px 0;
+      padding: 15px 0;
+      border-top: 3px white solid;
+      border-left: 2px rgb(177, 177, 177) solid;
+      border-right: 2px rgb(177, 177, 177) solid;
+
+      position: relative;
+      left: 10%;
+
+      box-sizing: border-box;
+      font-size: 17pt;
+
+      &:hover {
+        text-decoration: none;
+        color: white;
+        background-color: rgba(19, 0, 129, 0.075);
+      }
+    }
+  }
+
+  &.is-active {
+    transform: translateX(0);
+
+    button.hamburger {
+      right: 100%;
+    }
+  }
+}
